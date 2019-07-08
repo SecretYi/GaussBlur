@@ -1,8 +1,10 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 
 android {
     compileSdkVersion 28
+    buildToolsVersion "28.0.3"
     defaultConfig {
         minSdkVersion 18
         targetSdkVersion 28
@@ -33,4 +35,25 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.annotation:annotation:1.1.0'
+}
+
+//uploadArchives{
+//    repositories.mavenDeployer{
+//        // 配置本地仓库路径，项目根目录下的repository目录中
+//        repository(url: uri('../repository'))
+//        pom.groupId = "com.openxu.viewlib"// 唯一标识（通常为模块包名，也可以任意）
+//        pom.artifactId = "OXViewLib" // 项目名称（通常为类库模块名称，也可以任意）
+//        pom.version = "1.0.0" // 版本号
+//    }
+//}
+
+
+
+publish {
+    userOrg = 'dk-opensource' //bintray账户下某个组织id
+    groupId = 'com.dk.oepnsource.utils' //maven仓库下库的包名，一般为模块包名
+    artifactId = 'gaussblur' //项目名称
+    publishVersion = '1' //版本号
+    desc = '' //项目介绍，可以不写
+    website = '' //项目主页，可以不写
 }
